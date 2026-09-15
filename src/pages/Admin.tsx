@@ -9,24 +9,9 @@ type Props = {
 }
 
 export default function Admin({ data, onChange }: Props) {
-  const [unlocked, setUnlocked] = useState(
-    () => sessionStorage.getItem('sp-admin') === '1',
-  )
-  const [pin, setPin] = useState('')
   const [cv, setCv] = useState<StoredCv | null>(() => loadCv())
   const [status, setStatus] = useState('')
   const [draft, setDraft] = useState<SiteData>(data)
-
-  function unlock(e: FormEvent) {
-    e.preventDefault()
-    if (pin.trim() !== data.adminPin) {
-      setStatus('PIN incorrecto')
-      return
-    }
-    sessionStorage.setItem('sp-admin', '1')
-    setUnlocked(true)
-    setStatus('')
-  }
 
   function persist(next: SiteData) {
     setDraft(next)
@@ -73,26 +58,6 @@ export default function Admin({ data, onChange }: Props) {
 
   function removeProject(id: string) {
     persist({ ...draft, projects: draft.projects.filter((p) => p.id !== id) })
-  }
-
-  if (!unlocked) {
-    return (
-      <section className="wrap admin">
-        <Link to="/">← Volver al portafolio</Link>
-        <h1>Administrar portafolio</h1>
-        <p className="muted">PIN inicial: 2468. Puedes cambiarlo después de entrar.</p>
-        <form className="card form" onSubmit={unlock} style={{ maxWidth: 420, marginTop: 18 }}>
-          <label>
-            PIN
-            <input value={pin} onChange={(e) => setPin(e.target.value)} type="password" />
-          </label>
-          <button className="btn btn-primary" type="submit">
-            Entrar
-          </button>
-          {status && <p className="muted">{status}</p>}
-        </form>
-      </section>
-    )
   }
 
   return (
@@ -198,13 +163,6 @@ export default function Admin({ data, onChange }: Props) {
                 const photo = await compressImage(file)
                 setDraft({ ...draft, profile: { ...draft.profile, photo } })
               }}
-            />
-          </label>
-          <label>
-            PIN del panel
-            <input
-              value={draft.adminPin}
-              onChange={(e) => setDraft({ ...draft, adminPin: e.target.value })}
             />
           </label>
           <button className="btn btn-primary" type="submit">

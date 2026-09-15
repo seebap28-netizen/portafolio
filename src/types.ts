@@ -36,5 +36,4 @@ export type SiteData = {
   services: Service[]
   stack: string[]
   projects: Project[]
-  adminPin: string
 }

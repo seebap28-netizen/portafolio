@@ -31,7 +31,6 @@ export function loadSite(): SiteData {
       services: parsed.services?.length ? parsed.services : DEFAULT_DATA.services,
       stack: parsed.stack?.length ? parsed.stack : DEFAULT_DATA.stack,
       projects: parsed.projects ?? DEFAULT_DATA.projects,
-      adminPin: parsed.adminPin || DEFAULT_DATA.adminPin,
     }
   } catch {
     return structuredClone(DEFAULT_DATA)

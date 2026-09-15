@@ -1,7 +1,6 @@
 import type { SiteData } from '../types'
 
 export const DEFAULT_DATA: SiteData = {
-  adminPin: '2468',
   profile: {
     name: 'Sebastian Pedreros',
     role: 'Informático · Freelancer',
