@@ -166,7 +166,7 @@ export default function Home({ profile, stack, services, projects }: Props) {
             <h2>Trabajo reciente</h2>
             <p>Proyectos de sitios, catálogos y sistemas web.</p>
           </div>
-          <div className="grid-3">
+          <div className="grid-3 work-grid">
             {projects.length === 0 && (
               <article className="card">
                 <h3>Portafolio en construcción</h3>

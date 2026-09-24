@@ -56,6 +56,17 @@ export const DEFAULT_DATA: SiteData = {
   ],
   projects: [
     {
+      id: 'delvalle',
+      title: 'Del Valle Sushi',
+      description:
+        'Carta online para armar rolls, ver promos y pedir por WhatsApp. Local en Coelemu, Ñuble.',
+      url: 'https://delvallesushi.cl',
+      github: '',
+      tags: ['Gastronomía', 'Carta online', 'WhatsApp'],
+      image: '/proyectos/delvalle.jpg',
+      featured: true,
+    },
+    {
       id: 'cedrus',
       title: 'Cedrus Café Restaurant',
       description:

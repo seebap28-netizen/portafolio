@@ -1,7 +1,7 @@
 import { DEFAULT_DATA } from '../data/defaults'
 import type { SiteData } from '../types'
 
-const KEY = 'sp-portfolio-v5'
+const KEY = 'sp-portfolio-v6'
 const CV_KEY = 'sp-cv-v1'
 export const DEFAULT_CV_HREF = '/curriculum.pdf'
 export const DEFAULT_CV_NAME = 'CV-Sebastian-Pedreros.pdf'
